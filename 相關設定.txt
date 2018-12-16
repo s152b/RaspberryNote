@@ -1,0 +1,36 @@
+解析度調整  http://s9930081.blogspot.com/2017/10/blog-post.html
+1.在終端機中輸入 sudo vi /boot/config.txt
+2找  
+hdmi_group=2    //模式選擇(參照下方說明)
+hdmi_group=1 ––> CEA
+hdmi_group=2 ––> DMT
+hdmi_mode=28   //像素、解析度選擇(參照下方說明)
+hdmi_mode 須對照 hdmi_group
+把#拿掉  儲存後重新開機生效列位置
+
+安裝中文字型
+[文泉驛字型]
+‧ 安裝文泉驛微米黑、文泉驛正黑、文泉驛點陣宋體
+$ sudo apt-get install fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy
+[文鼎字型]
+‧ 安裝文鼎中文字型，舊的 package 名稱為 ttf-arphic-uming
+$ sudo apt-get install fonts-arphic-uming 
+如要安裝全部文鼎中文字型，可輸入以下指令：
+$ sudo apt-get install fonts-arphic*
+‧ 安裝日文字型及日文輸入法，舊的 package 名稱為 ttf-vlgothic
+$ sudo apt-get install fonts-vlgothic scim-anthy
+[教育部標準楷書]
+$ sudo apt-get install fonts-moe-standard-kai
+[cwTex圓體]
+$ sudo apt-get install fonts-cwtex-yen
+[更改語系]
+如要設定語系及系統預設語言，需執行 raspi-config進行設定：
+$ sudo raspi-config
+
+安裝輸入法]
+安裝指令：
+$ sudo apt-get install scim scim-tables-zh scim-chewing scim-gtk-immodule im-switch
+安裝好 SCIM 輸入法後，切換按鍵如下：
+‧  Ctrl-Space ：切換輸入中文或英文
+‧  Ctrl-Shift   ：切換不同輸入法
+SCIM 提供了不少中文輸入法 (套件 scim-tables-zh) ，從視窗桌面選中文輸入法，可以列出一堆，包括：倉頡、輕鬆、大易、注音等。
